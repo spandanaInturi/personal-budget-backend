@@ -128,7 +128,7 @@ app.post('/login',(req,res)=>{
 //     res.json(data);
 
 // });
-get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('hello');
 });
 
