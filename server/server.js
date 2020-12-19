@@ -1,9 +1,9 @@
-
 const express= require('express')
 const bodyParser=require('body-parser')
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const app= express();
+const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 var Login = require("./models/login")
 const bcrypt = require('bcrypt');
@@ -13,7 +13,7 @@ var dbconnections = require('./utility/logindb');
 app.use(cors(corsOptions));
 
 var corsOptions = {
-  origin: "http://localhost:1234"
+  origin: "process.env.PORT || 3000;"
 };
 
 //connecting
@@ -128,4 +128,4 @@ app.get('/budget' , (req,res) => {
 
 });
 
-app.listen(1234, ()=> console.log('Server listening at 1234'))
+app.listen(3000, ()=> console.log('Server listening at 3000'))
