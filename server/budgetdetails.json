@@ -1,0 +1,30 @@
+[
+    {
+        "title":"EatOut",
+        "budget":300
+    },
+    {
+        "title":"Rent",
+        "budget":800
+    },
+    {
+        "title":"Groceries",
+        "budget":500
+    },
+    {
+        "title": "travel",
+        "budget":1000
+    },
+    {
+        "title": "internet",
+        "budget":200
+    },
+    {
+        "title":"Education",
+        "budget": 1500
+    },
+    {
+        "title":"other expenses",
+        "budget":100
+    }
+]
