@@ -9,6 +9,7 @@ var Login = require("./models/login")
 const bcrypt = require('bcrypt');
 const budgetModel = require('./models/budget')
 var dbconnections = require('./utility/logindb');
+const { Router } = require('express');
 
 app.use(cors(corsOptions));
 
@@ -127,5 +128,8 @@ app.post('/login',(req,res)=>{
 //     res.json(data);
 
 // });
+Router.get('/', (req, res) => {
+  res.send('hello');
+});
 
 app.listen(3000, ()=> console.log('Server listening at 3000'))
