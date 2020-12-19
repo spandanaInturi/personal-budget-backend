@@ -12,6 +12,7 @@ var dbconnections = require('./utility/logindb');
 const { Router } = require('express');
 
 app.use(cors());
+app.use(bodyParser.json());
 
 // var corsOptions = {
 //   origin: "process.env.PORT || 3000;"
@@ -19,12 +20,14 @@ app.use(cors());
 
 //connecting
 
-mongoose.connect('mongodb+srv://Spandana14:Spandana14@budget.e47tz.mongodb.net/personal_budget?retryWrites=true&w=majority',function(err,db){
-  if (err) throw err;
-  console.log("connected to database",db.name)
-})
 
-app.use(bodyParser.json())
+
+mongoose.connect('mongodb+srv://Spandana14:Spandana14@budget.e47tz.mongodb.net/personal_budget?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true })
+    .then(() => console.log('Now connected to MongoDB!'))
+    .catch(err => console.error('Something went wrong', err));
+
+
+
 
 
 
@@ -132,4 +135,4 @@ app.get('/', (req, res) => {
   res.send('hello');
 });
 
-app.listen(3000, ()=> console.log('Server listening at 3000'))
+app.listen(port, ()=> console.log('Server listening at 3000'))
