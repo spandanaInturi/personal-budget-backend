@@ -3,7 +3,7 @@ const bodyParser=require('body-parser')
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const app= express();
-const port = process.env.PORT || 3000;
+
 const mongoose = require('mongoose');
 var Login = require("./models/login")
 const bcrypt = require('bcrypt');
@@ -120,12 +120,12 @@ app.post('/login',(req,res)=>{
 
 
   
-const data = require('./budgetdetails.json');
+// const data = require('./budgetdetails.json');
 
-app.get('/budget' , (req,res) => {
+// app.get('/budget' , (req,res) => {
 
-    res.json(data);
+//     res.json(data);
 
-});
+// });
 
 app.listen(3000, ()=> console.log('Server listening at 3000'))
