@@ -60,7 +60,7 @@ app.post('/signup',(req,res)=>{
     if (err) {
       console.log(err)      
     } else {
-      let payload = {subject: registeredUser._id}
+      let payload = {subject: registeredUser._id,expiresIn: 2}
       let token = jwt.sign(payload, 'secretKey')
       res.status(200).send({token})
     }
@@ -72,7 +72,7 @@ else{
 })
 })
 
-app.post('/budget_details',(req,res)=>{
+app.post('/budget_details',verifyToken,(req,res)=>{
   
   budget = new budgetModel({
     username: req.body.username,
@@ -87,7 +87,7 @@ app.post('/budget_details',(req,res)=>{
 
 })
 
-app.post("/get_budget_details",(req,res)=>{
+app.post("/get_budget_details",verifyToken,(req,res)=>{
   console.log("in get budget method",req.body);
   budgetModel.find({username:req.body.email},(err,user)=> {
     console.log("user information final",user)
@@ -114,12 +114,12 @@ app.post('/login',(req,res)=>{
       if ( phase==false ) {
         res.status(401).send('Invalid Password')
       } else {
-        let payload = {subject: user._id}
+        let payload = {subject: user._id,expiresIn: 2}
       let token = jwt.sign(payload, 'secretKey')
       res.status(200).send({token})
       }
     }
-  })
+  })  
 })
 
 
