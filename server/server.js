@@ -11,7 +11,7 @@ const budgetModel = require('./models/budget')
 var dbconnections = require('./utility/logindb');
 const { Router } = require('express');
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // var corsOptions = {
 //   origin: "process.env.PORT || 3000;"
@@ -85,7 +85,7 @@ app.post('/budget_details',(req,res)=>{
 })
 
 app.post("/get_budget_details",(req,res)=>{
-  console.log("in get budeget method",req.body);
+  console.log("in get budget method",req.body);
   budgetModel.find({username:req.body.email},(err,user)=> {
     console.log("user information final",user)
      res.json(user)
@@ -128,7 +128,7 @@ app.post('/login',(req,res)=>{
 //     res.json(data);
 
 // });
-Router.get('/', (req, res) => {
+get('/', (req, res) => {
   res.send('hello');
 });
 
