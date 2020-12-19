@@ -3,7 +3,7 @@ const bodyParser=require('body-parser')
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
 const app= express();
-
+const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 var Login = require("./models/login")
 const bcrypt = require('bcrypt');
@@ -12,9 +12,9 @@ var dbconnections = require('./utility/logindb');
 
 app.use(cors(corsOptions));
 
-var corsOptions = {
-  origin: "process.env.PORT || 3000;"
-};
+// var corsOptions = {
+//   origin: "process.env.PORT || 3000;"
+// };
 
 //connecting
 
