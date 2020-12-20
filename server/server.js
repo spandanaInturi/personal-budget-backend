@@ -72,7 +72,8 @@ else{
 })
 })
 
-app.post('/budget_details',verifyToken,(req,res)=>{
+app.post('/budget_details',(req,res)=>{
+  console.log(req)
   
   budget = new budgetModel({
     username: req.body.username,
@@ -87,7 +88,7 @@ app.post('/budget_details',verifyToken,(req,res)=>{
 
 })
 
-app.post("/get_budget_details",verifyToken,(req,res)=>{
+app.post("/get_budget_details",(req,res)=>{
   console.log("in get budget method",req.body);
   budgetModel.find({username:req.body.email},(err,user)=> {
     console.log("user information final",user)
